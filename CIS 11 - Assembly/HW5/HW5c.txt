@@ -1,0 +1,24 @@
+TITLE MASM HW5					(main.asm)
+
+; //author: Howard Nguyen
+; //HW5: c
+
+INCLUDE Irvine32.inc
+
+
+.data
+txt BYTE "Do your homework!", 0Dh, 0Ah, 0
+
+.code
+main PROC
+	mov ecx, 0
+	mov edx, offset txt
+	.while ecx < 5
+		call WriteString
+		inc ecx
+	.endw
+
+	exit
+main ENDP
+
+END main

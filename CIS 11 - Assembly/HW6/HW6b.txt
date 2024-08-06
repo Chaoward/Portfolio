@@ -1,0 +1,85 @@
+TITLE MASM HW6					(main.asm)
+
+; //author: Howard Nguyen
+; //HW5: b
+
+INCLUDE Irvine32.inc
+
+
+.data
+numbers SDWORD 20 DUP(0)
+txt BYTE "How many Integers will be added?: ", 0
+txt2 BYTE "Enter a Signed Integer: ", 0
+txt3 BYTE "Sum = ", 0
+
+.code
+main PROC
+	call getIntCount
+	push offset numbers
+	call promptForInt
+	call calcSum
+	call showSum
+
+	exit
+main ENDP
+	
+
+getIntCount PROC
+	mov edx, offset txt
+	call WriteString
+	call ReadInt
+	mov ecx, eax
+
+	ret
+getIntCount ENDP
+
+
+
+promptForInt PROC
+	push ebp
+	mov ebp, esp
+
+	mov edx, offset txt2
+	mov esi, [ebp + 8]
+	L:
+		call WriteString
+		call ReadInt
+		mov [esi], eax
+		add esi, 4
+	loop L
+
+	pop ebp
+	ret
+promptForInt ENDP
+
+
+
+calcSum PROC
+	push ebp
+	mov ebp, esp
+
+	mov esi, [ebp + 8]
+	mov eax, 0
+	mov ecx, lengthof numbers
+	L:
+		add eax, [esi]
+		add esi, 4
+	loop L
+	E:
+
+	pop ebp
+	ret
+calcSum ENDP
+
+
+
+showSum PROC
+	mov edx, offset txt3
+	call WriteString
+	call WriteInt
+
+	ret
+showSum ENDP
+
+
+END main

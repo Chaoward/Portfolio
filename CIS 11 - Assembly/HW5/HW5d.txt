@@ -1,0 +1,54 @@
+TITLE MASM HW5					(main.asm)
+
+; //author: Howard Nguyen
+; //HW5: d
+
+INCLUDE Irvine32.inc
+
+
+.data
+num1 SDWORD ?
+num2 SDWORD ?
+num3 SDWORD ?
+prompt BYTE "Enter a Number: ", 0
+txt BYTE "The Highest Number is ", 0
+
+.code
+main PROC
+	mov edx, offset prompt
+	mov ecx, 0
+	.while ecx < 3
+		call WriteString
+		call ReadInt
+		push eax
+		inc ecx
+		call Clrscr
+	.endw
+
+	pop num1
+	pop num2
+	pop num3
+	mov eax, num1
+	cmp eax, num2
+	jg N1
+	jmp N2
+	N2:
+		mov eax, num2
+		cmp eax, num3
+		jg E
+		jmp N3
+	N1:
+		cmp eax, num3
+		jg E
+	N3:
+		mov eax, num3
+	E:
+
+	mov edx, offset txt
+	call WriteString
+	call WriteInt
+
+	exit
+main ENDP
+
+END main

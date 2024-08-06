@@ -1,0 +1,3 @@
+author: Howard Nguyen
+class: CIS-18C
+description: Week 7 Exercise 1

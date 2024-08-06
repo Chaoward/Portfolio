@@ -1,0 +1,36 @@
+TITLE MASM HW3					(main.asm)
+
+; //author: Howard Nguyen
+; //HW3: b
+
+INCLUDE Irvine32.inc
+
+.data
+base DWORD ?
+promp1 BYTE "Enter a Width: ", 0
+promp2 BYTE "Enter a Length ", 0
+endText BYTE "Area = ", 0
+
+.code
+main PROC
+	mov edx, offset promp1
+	call WriteString
+	call ReadInt					; //EAX = ?width
+	mov base, eax					; //base = ?width
+	call Crlf
+
+	mov edx, offset promp2
+	call WriteString
+	call ReadInt					; //EAX = ?length
+	call Crlf
+
+	mul base						; //Multiples the base to EAX(length) [EAX = ?length, base = ?width]
+	mov edx, offset endText
+	call WriteString
+	call WriteInt
+	
+
+	exit
+main ENDP
+
+END main

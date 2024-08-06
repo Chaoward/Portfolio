@@ -1,0 +1,29 @@
+TITLE MASM HW3					(main.asm)
+
+; //author: Howard Nguyen
+; //HW3: a
+
+INCLUDE Irvine32.inc
+
+.data
+SUNDAY = 0
+MONDAY = 1
+TUESDAY = 2
+WEDNESDAY = 3
+THURSDAY = 4
+FRIDAY = 5
+SATURDAY = 6
+days BYTE SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY
+
+.code
+main PROC
+	movzx eax, days[4]
+	movzx ebx, days[3]
+	movzx ecx, days[2]
+	movzx edx, days[1]
+	call DumpRegs
+
+	exit
+main ENDP
+
+END main

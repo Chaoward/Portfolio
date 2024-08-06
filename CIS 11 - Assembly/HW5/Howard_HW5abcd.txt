@@ -1,0 +1,180 @@
+TITLE MASM HW5					(main.asm)
+
+; ///// HW3 //////////////////
+; //Author: Howard Nguyen
+; //Includes: HW5 a-d
+; ////////////////////////////
+
+
+
+
+; //author: Howard Nguyen
+; //HW5: a
+
+INCLUDE Irvine32.inc
+
+.data
+prompt BYTE "Enter a Number: ", 0
+txt1 BYTE " is Odd!", 0
+txt2 BYTE " is Even!", 0
+
+.code
+main PROC
+	mov edx, offset prompt
+	call WriteString
+	call ReadInt
+
+	mov ebx, 1
+	and ebx, eax
+	cmp ebx, 0
+	je Yes
+	jmp No
+	Yes:
+		call WriteInt
+		mov edx, offset txt2
+		call WriteString
+		jmp E
+	No:
+		call WriteInt
+		mov edx, offset txt1
+		call WriteString
+	E:
+
+	exit
+main ENDP
+
+END main
+
+
+
+
+
+
+
+TITLE MASM HW5					(main.asm)
+
+; //author: Howard Nguyen
+; //HW5: b
+
+INCLUDE Irvine32.inc
+
+
+.data
+prompt BYTE "Enter a Number: ", 0
+txt1 BYTE "Positive!", 0
+txt2 BYTE "Negative!", 0
+txt3 BYTE "Zero!", 0
+
+.code
+main PROC
+	mov edx, offset prompt
+	call WriteString
+	call ReadInt
+	cmp eax, 0
+	jg P
+	jl N
+	jmp Z
+	P:
+		mov edx, offset txt1
+		jmp E
+	N:
+		mov edx, offset txt2
+		jmp E
+	Z:
+		mov edx, offset txt3
+	E:
+	call WriteString
+
+	exit
+main ENDP
+
+END main
+
+
+
+
+
+TITLE MASM HW5					(main.asm)
+
+; //author: Howard Nguyen
+; //HW5: c
+
+INCLUDE Irvine32.inc
+
+
+.data
+txt BYTE "Do your homework!", 0Dh, 0Ah, 0
+
+.code
+main PROC
+	mov ecx, 0
+	mov edx, offset txt
+	.while ecx < 5
+		call WriteString
+		inc ecx
+	.endw
+
+	exit
+main ENDP
+
+END main
+
+
+
+
+
+
+TITLE MASM HW5					(main.asm)
+
+; //author: Howard Nguyen
+; //HW5: d
+
+INCLUDE Irvine32.inc
+
+
+.data
+num1 SDWORD ?
+num2 SDWORD ?
+num3 SDWORD ?
+prompt BYTE "Enter a Number: ", 0
+txt BYTE "The Highest Number is ", 0
+
+.code
+main PROC
+	mov edx, offset prompt
+	mov ecx, 0
+	.while ecx < 3
+		call WriteString
+		call ReadInt
+		push eax
+		inc ecx
+		call Clrscr
+	.endw
+
+	pop num1
+	pop num2
+	pop num3
+	mov eax, num1
+	cmp eax, num2
+	jg N1
+	jmp N2
+	N2:
+		mov eax, num2
+		cmp eax, num3
+		jg E
+		jmp N3
+	N1:
+		cmp eax, num3
+		jg E
+	N3:
+		mov eax, num3
+	E:
+
+	mov edx, offset txt
+	call WriteString
+	call WriteInt
+
+	exit
+main ENDP
+
+END main

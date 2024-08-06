@@ -1,0 +1,38 @@
+TITLE MASM HW5					(main.asm)
+
+; //author: Howard Nguyen
+; //HW5: b
+
+INCLUDE Irvine32.inc
+
+
+.data
+prompt BYTE "Enter a Number: ", 0
+txt1 BYTE "Positive!", 0
+txt2 BYTE "Negative!", 0
+txt3 BYTE "Zero!", 0
+
+.code
+main PROC
+	mov edx, offset prompt
+	call WriteString
+	call ReadInt
+	cmp eax, 0
+	jg P
+	jl N
+	jmp Z
+	P:
+		mov edx, offset txt1
+		jmp E
+	N:
+		mov edx, offset txt2
+		jmp E
+	Z:
+		mov edx, offset txt3
+	E:
+	call WriteString
+
+	exit
+main ENDP
+
+END main

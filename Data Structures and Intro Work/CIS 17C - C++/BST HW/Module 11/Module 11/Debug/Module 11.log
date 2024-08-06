@@ -1,0 +1,27 @@
+﻿  BST.cpp
+  main.cpp
+C:\Users\Howie\Documents\School Files\college\fall 2021\CIS-17C\BST HW\Module 11\Module 11\main.cpp(8,17): error C2668: 'BST<int>::add': ambiguous call to overloaded function
+C:\Users\Howie\Documents\School Files\college\fall 2021\CIS-17C\BST HW\Module 11\Module 11\BST.h(28,7): message : could be 'void BST<int>::add(const T &)'
+          with
+          [
+              T=int
+          ]
+C:\Users\Howie\Documents\School Files\college\fall 2021\CIS-17C\BST HW\Module 11\Module 11\BST.h(27,7): message : or       'void BST<int>::add(const T)'
+          with
+          [
+              T=int
+          ]
+C:\Users\Howie\Documents\School Files\college\fall 2021\CIS-17C\BST HW\Module 11\Module 11\main.cpp(8,17): message : while trying to match the argument list '(int)'
+C:\Users\Howie\Documents\School Files\college\fall 2021\CIS-17C\BST HW\Module 11\Module 11\main.cpp(11,33): error C2668: 'BST<int>::search': ambiguous call to overloaded function
+C:\Users\Howie\Documents\School Files\college\fall 2021\CIS-17C\BST HW\Module 11\Module 11\BST.h(32,7): message : could be 'bool BST<int>::search(const T &)'
+          with
+          [
+              T=int
+          ]
+C:\Users\Howie\Documents\School Files\college\fall 2021\CIS-17C\BST HW\Module 11\Module 11\BST.h(31,7): message : or       'bool BST<int>::search(const T)'
+          with
+          [
+              T=int
+          ]
+C:\Users\Howie\Documents\School Files\college\fall 2021\CIS-17C\BST HW\Module 11\Module 11\main.cpp(11,33): message : while trying to match the argument list '(int)'
+  Generating Code...

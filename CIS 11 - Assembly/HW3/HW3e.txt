@@ -1,0 +1,29 @@
+TITLE MASM HW3					(main.asm)
+
+; //author: Howard Nguyen
+; //HW3: e
+
+INCLUDE Irvine32.inc
+
+.data
+num1 SWORD 3
+num2 SWORD -4
+
+.code
+main PROC
+	movzx eax, num1
+	call WriteInt
+	call Crlf
+
+	neg eax
+	call WriteInt
+	call Crlf
+
+	movsx ebx, num2
+	mov eax, ebx
+	call WriteInt
+
+	exit
+main ENDP
+
+END main

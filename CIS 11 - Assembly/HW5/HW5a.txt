@@ -1,0 +1,38 @@
+TITLE MASM HW5					(main.asm)
+
+; //author: Howard Nguyen
+; //HW5: a
+
+INCLUDE Irvine32.inc
+
+.data
+prompt BYTE "Enter a Number: ", 0
+txt1 BYTE " is Odd!", 0
+txt2 BYTE " is Even!", 0
+
+.code
+main PROC
+	mov edx, offset prompt
+	call WriteString
+	call ReadInt
+
+	mov ebx, 1
+	and ebx, eax
+	cmp ebx, 0
+	je Yes
+	jmp No
+	Yes:
+		call WriteInt
+		mov edx, offset txt2
+		call WriteString
+		jmp E
+	No:
+		call WriteInt
+		mov edx, offset txt1
+		call WriteString
+	E:
+
+	exit
+main ENDP
+
+END main

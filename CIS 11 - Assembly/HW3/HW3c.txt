@@ -1,0 +1,30 @@
+TITLE MASM HW3					(main.asm)
+
+; //author: Howard Nguyen
+; //HW3: c
+
+INCLUDE Irvine32.inc
+
+.data
+numbers DWORD 1, 2, 3
+text BYTE "Here are the numbers: ", 0
+
+.code
+main PROC
+	mov edx, offset text
+	call WriteString
+	call Crlf
+
+	mov esi, offset numbers
+	mov ecx, lengthof numbers
+	L1:
+		mov eax, [esi]			; //dereference and loads value in EAX
+		call WriteInt
+		call Crlf
+		add esi, 4				; //increment by 4 because values are 4 bytes
+	loop L1
+
+	exit
+main ENDP
+
+END main

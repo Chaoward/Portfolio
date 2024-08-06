@@ -1,0 +1,62 @@
+TITLE MASM HW6					(main.asm)
+
+; //author: Howard Nguyen
+; //HW5: a
+
+INCLUDE Irvine32.inc
+
+
+.data
+nums DWORD 10 DUP(0)
+txt BYTE "Enter a number: ", 0
+txt2 BYTE "Here are the numbers: ", 0Ah, 0Dh, 0
+
+.code
+main PROC
+	push offset nums
+	call getNums
+	call showNums
+
+	exit
+main ENDP
+	
+
+getNums PROC
+	push ebp
+	mov ebp, esp
+
+	mov edx, offset txt
+	mov esi, [ebp + 8]
+	mov ecx, lengthof nums
+	L:
+		call WriteString
+		call ReadInt
+		mov [esi], eax
+		add esi, 4 
+	loop L
+	call Clrscr
+
+	pop ebp
+	ret
+getNums ENDP
+
+
+showNums PROC
+	push ebp
+	mov ebp, esp
+
+	mov edx, offset txt
+	mov esi, [ebp + 8]
+	mov ecx, lengthof nums
+	L:
+		mov eax, [esi]
+		call WriteInt
+		call Crlf
+		add esi, 4
+	loop L
+
+	pop ebp
+	ret
+showNums ENDP
+
+END main

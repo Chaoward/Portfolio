@@ -1,0 +1,197 @@
+; /////// HW 3 ////////////
+; //Author: Howard Nguyen
+; //Includes: HW3a-e
+; /////////////////////////
+
+
+
+
+
+TITLE MASM HW3a					(main.asm)
+
+; //author: Howard Nguyen
+; //HW3: a
+
+INCLUDE Irvine32.inc
+
+.data
+SUNDAY = 0
+MONDAY = 1
+TUESDAY = 2
+WEDNESDAY = 3
+THURSDAY = 4
+FRIDAY = 5
+SATURDAY = 6
+days BYTE SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY
+
+.code
+main PROC
+	movzx eax, days[4]
+	movzx ebx, days[3]
+	movzx ecx, days[2]
+	movzx edx, days[1]
+	call DumpRegs
+
+	exit
+main ENDP
+
+END main
+
+
+
+
+
+TITLE MASM HW3b					(main.asm)
+
+; //author: Howard Nguyen
+; //HW3: b
+
+INCLUDE Irvine32.inc
+
+.data
+base DWORD ?
+promp1 BYTE "Enter a Width: ", 0
+promp2 BYTE "Enter a Length ", 0
+endText BYTE "Area = ", 0
+
+.code
+main PROC
+	mov edx, offset promp1
+	call WriteString
+	call ReadInt					; //EAX = ?width
+	mov base, eax					; //base = ?width
+	call Crlf
+
+	mov edx, offset promp2
+	call WriteString
+	call ReadInt					; //EAX = ?length
+	call Crlf
+
+	mul base						; //Multiples the base to EAX(length) [EAX = ?length, base = ?width]
+	mov edx, offset endText
+	call WriteString
+	call WriteInt
+	
+
+	exit
+main ENDP
+
+END main
+
+
+
+
+
+TITLE MASM HW3c					(main.asm)
+
+; //author: Howard Nguyen
+; //HW3: c
+
+INCLUDE Irvine32.inc
+
+.data
+numbers DWORD 1, 2, 3
+text BYTE "Here are the numbers: ", 0
+
+.code
+main PROC
+	mov edx, offset text
+	call WriteString
+	call Crlf
+
+	mov esi, offset numbers
+	mov ecx, lengthof numbers
+	L1:
+		mov eax, [esi]			; //dereference and loads value in EAX
+		call WriteInt
+		call Crlf
+		add esi, 4				; //increment by 4 because values are 4 bytes
+	loop L1
+
+	exit
+main ENDP
+
+END main
+
+
+
+
+
+TITLE MASM HW3d					(main.asm)
+
+; //author: Howard Nguyen
+; //HW3: d
+
+INCLUDE Irvine32.inc
+
+.data
+num1 DWORD 2
+num2 DWORD 2
+sum DWORD ?
+diff DWORD ?
+txtSum BYTE "Sum = ", 0
+txtDiff BYTE "Difference = ", 0
+
+.code
+main PROC
+	inc num1						; //num1 = 3
+	dec num2						; //num2 = 1
+	mov eax, num1
+	add eax, num2
+	mov sum, eax					; //sum = 4
+	mov eax, num1
+	sub eax, num2
+	mov diff, eax					; //diff = 2
+
+	; //Display the Sum
+	mov edx, offset txtSum
+	call WriteString
+	mov eax, sum
+	call WriteInt
+	call Crlf
+	
+	; //Display the Difference
+	mov edx, offset txtDiff
+	call WriteString
+	mov eax, diff
+	call WriteInt
+	call Crlf
+
+	exit
+main ENDP
+
+END main
+
+
+
+
+
+TITLE MASM HW3e					(main.asm)
+
+; //author: Howard Nguyen
+; //HW3: e
+
+INCLUDE Irvine32.inc
+
+.data
+num1 SWORD 3
+num2 SWORD -4
+
+.code
+main PROC
+	movzx eax, num1
+	call WriteInt
+	call Crlf
+
+	neg eax
+	call WriteInt
+	call Crlf
+
+	movsx ebx, num2
+	mov eax, ebx
+	call WriteInt
+
+	exit
+main ENDP
+
+END main

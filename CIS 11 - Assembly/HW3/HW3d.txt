@@ -1,0 +1,44 @@
+TITLE MASM HW3					(main.asm)
+
+; //author: Howard Nguyen
+; //HW3: d
+
+INCLUDE Irvine32.inc
+
+.data
+num1 DWORD 2
+num2 DWORD 2
+sum DWORD ?
+diff DWORD ?
+txtSum BYTE "Sum = ", 0
+txtDiff BYTE "Difference = ", 0
+
+.code
+main PROC
+	inc num1						; //num1 = 3
+	dec num2						; //num2 = 1
+	mov eax, num1
+	add eax, num2
+	mov sum, eax					; //sum = 4
+	mov eax, num1
+	sub eax, num2
+	mov diff, eax					; //diff = 2
+
+	; //Display the Sum
+	mov edx, offset txtSum
+	call WriteString
+	mov eax, sum
+	call WriteInt
+	call Crlf
+	
+	; //Display the Difference
+	mov edx, offset txtDiff
+	call WriteString
+	mov eax, diff
+	call WriteInt
+	call Crlf
+
+	exit
+main ENDP
+
+END main

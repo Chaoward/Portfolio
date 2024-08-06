@@ -1,0 +1,2 @@
+author: Howard Nguyen
+description: Lab 3 for CIS-18C, array and linklist.
