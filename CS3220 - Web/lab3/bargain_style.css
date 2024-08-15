@@ -1,0 +1,53 @@
+#header,#header div {
+    border: 0.1em solid black;
+}
+
+#header {
+    position: fixed;
+    width: 99%;
+    background-color: white;
+}
+
+#latest {
+    float: left;
+    margin-top: 6em;
+    width: 65%;
+}
+
+
+#trend {
+    float: right;
+    margin-top: 6em;
+    width: 33%;
+}
+
+#footer {
+    text-align: center;
+    clear: both;
+    margin-bottom: 2%;
+    border: 0.1em solid black;
+}
+
+
+.ad {
+    background-color: yellow;
+    height: 200px
+}
+
+.content div:first-of-type+div {
+    font-size:x-large;
+    font-weight: bolder;
+    border-bottom: 0.15em solid black;
+    margin-bottom: 10px;
+}
+
+.content div:first-of-type+div~div  {
+    border: 0.1em solid black;
+    font-size: large;
+    font-weight: bold;
+}
+
+.content p {
+    font-size: medium;
+    font-weight: normal;
+}

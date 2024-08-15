@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS3220 Lab 7</title>
+</head>
+
+<body>
+    <h2>CS3220 Lab 7</h2>
+
+    <p>Please deploy your application on CS3, and upload all source files to Canvas. The source files should
+        include all the source code and an HTML file <em>lab7.html</em> which contains a hyperlink to your
+        application on the CS3 server.</p>
+    <hr />
+    <p>In this lab you are going to implement basic login and logout operations using the Servlet
+        Session Tracking API.</p>
+
+    <p>1. (30pt) Create a servlet <code>Login</code>:</p>
+
+    <ul>
+        <li>In <code>doGet()</code>, display a login form, e.g.</li>
+    </ul>
+
+    <p style="margin-left: 40px;">Username: <input name="username" type="text" /></p>
+
+    <p style="margin-left: 40px;">Password: <input name="password" type="password" /></p>
+
+    <p style="margin-left: 40px;"><input name="login" type="submit" value="Login" /></p>
+
+    <ul>
+        <li>In <code>doPost()</code>, check if the username and password match
+            <samp>cysun</samp> and <samp>abcd</samp>, respectively. If the username and password are correct, set a
+            session attribute <samp>user</samp> and redirect the user to the <code>Members</code> servlet; if not,
+            redirect the user back to the login form. You may add additional accounts if you want, but
+            <samp>cysun/abcd</samp> must be a valid account so we can test your code.
+        </li>
+    </ul>
+
+    <p>2. (20pt) Create a servlet <code>Members</code>. This servlet first checks if the session attribute
+        <samp>user</samp> is set. If so, it displays the following:</p>
+
+    <h3 style="margin-left: 40px;">Welcome to the Members Area</h3>
+
+    <p style="margin-left: 40px;"><a href="#">Logout</a></p>
+
+    <p>Otherwise it redirects the user back to the login form.</p>
+
+    <p>3.(10pt) Clicking on <em>Logout</em> should take the user to a <code>Logout</code> servlet which invalidate
+        the session (i.e. calling the <code>invalidate()</code> method in HttpSession), then redirect the user back
+        to the login form.</p>
+    </td>
+    </tr>
+    </table>
+
+</body>
+
+</html>

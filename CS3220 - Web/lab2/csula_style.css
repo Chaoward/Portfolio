@@ -1,0 +1,26 @@
+#heading_info {
+    background-color: black;
+    color:white;
+    text-align: right;
+    font-size: small;
+}
+
+
+#links {
+    background-color: gold;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: smaller;
+}
+
+
+.sub-heading {
+    font-weight: bold;
+}

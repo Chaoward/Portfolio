@@ -1,0 +1,36 @@
+body
+{
+	background-color: #ffffff;
+	color: #000000;
+	margin:0
+}
+h1, h2, h3, h4, h5, h6 {font-family: sans-serif; color: blue}
+#head, #main, #address{margin-left: 120px}
+#head{border-bottom: 1px solid purple}
+#address{
+		text-align:center;
+		border-top:1px solid purple;
+		font: normal 8pt sans-serif; 
+		color: purple
+		}
+#links{
+		position: absolute; 
+		top:0;
+		right:0;
+		left:0;
+		font-size: 8pt;
+		margin-top: 0px; 
+		width:100px; 
+		background-color:purple
+		}
+#links a {
+		display: block;
+		font-family: sans-serif;
+		color: white;
+		padding:2px;
+		margin:0px;
+		border: 5px double purple
+		}
+#links a:link {text-decoration: none}
+#links a:visited {text-decoration: none}
+#links a:hover {border: 7px outset red; color: yellow}

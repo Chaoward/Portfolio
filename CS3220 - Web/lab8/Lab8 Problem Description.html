@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS3220 Lab 8</title>
+</head>
+
+<body>
+
+    <h2>CS3220 Lab 8</h2>
+
+    <p>Please deploy your application on CS3, and upload all source files to Canvas. The source files
+        should include all the source code, and an HTML file <em>lab8.html</em> which contains a
+        hyperlink to your application on the CS3 server.</p>
+    <hr>
+
+    <h3>Problem Description</h3>
+    <p>Please download the file <a href="https://csns.cysun.org/download?fileId=4767429">DrivingTest.txt</a> and
+        put it under the <samp>/WEB-INF</samp> folder of your project. This file contains a number of questions
+        for a driving test. The format of the file is as follows:</p>
+
+    <ul>
+        <li>Each question occupies five consecutive lines: the first line is the question description, the next three
+            lines are three possible answers, and the last line is a number 1, or 2, or 3, which indicates which answer
+            is the correct answer.</li>
+        <li>The exact number of questions is unknown, but we do know that the questions are separated from one another
+            by an empty line.</li>
+    </ul>
+
+    <p>Note that you may not change the content of this file.</p>
+
+    <p>For this lab, develop a web application that allows a user to browse the driving test one question at a time. For
+        example:</p>
+
+    <p style="margin-left: 40px;">When parking your vehicle parallel to the curb on a level street.<br>
+        1. Your front wheels must be turned toward the street.<br>
+        2. Your wheels must be within 18 inches of the curb.<br>
+        3. One of your rear wheels must touch the curb.<br>
+        Correct answer: 2</p>
+
+    <p style="margin-left: 40px;"><a href="#">Next</a></p>
+
+    <p>A use may click on the Next link to see the next question, and when the last question is shown, clicking on Next
+        should take the user back to the first question. The difficult part of this is to keep track of the index of the
+        current question in order to know which question to display when the user clicks Next. There are two acceptable
+        approaches:</p>
+    <ul>
+        <li>Keep the index of the current question in session scope, or</li>
+        <li>Embed the index of the next question in the Next link as a request parameter, e.g. <code>&lt;a
+                href="DrivingTestBrowser?nextQuestionIndex=1"&gt;Next&lt;/a&gt;</code></li>
+    </ul>
+    <p>For the same reason as discussed in Lab 6, keeping track of the current question using application scope is
+        <em>not</em> an acceptable solution.
+    </p>
+
+    <h3>Implementation</h3>
+
+    <p>Your implementation must use the MVC architecture discussed in class. In particular:</p>
+
+    <p>1. (10pt) Create a model class <samp>Question</samp> to hold the information about a question. The class should
+        have
+        the following properties:</p>
+
+    <ul>
+        <li><samp>String</samp> properties of <samp>description</samp>, <samp>answerA</samp>, <samp>answerB</samp>, and
+            <samp>answerC</samp>.
+        </li>
+        <li><samp>int</samp> property <samp>correctAnswer</samp>.</li>
+    </ul>
+
+    <p>2. (60pt) Create a controller servlet <code>DrivingTestBrowser</code> as follows:</p>
+
+    <ul>
+        <li>In <code>init()</code>, read DrivingTest.txt and store the questions in a <code>List&lt;Question&gt;</code>
+            in the
+            application scope.</li>
+        <li>In <code>doGet()</code>, process the request and pass the index of the question to be displayed to a view
+            (i.e. JSP).</li>
+    </ul>
+
+    <p>HINTS:</p>
+
+    <p>Because the questions are already stored in application scope, you don't need to pass questions to the JSP
+        because JSP can access all application scope variables.</p>
+
+    <p>To access a question at a certain index in JSP, you can use something like <code>${questions[index]}</code>
+        (assuming the application scope variable for the question list is <code>questions</code>).</p>
+
+    <p>3. (30pt) Create a JSP that displays the question and the <em>Next</em> link using EL.</p>
+
+    <h3>Notes</h3>
+
+    <p>In the servlet you can get the path to the file <samp>DrivingTest.txt</samp> using
+        <code>getServletContext().getRealPath("/WEB-INF/DrivingTest.txt")</code>,
+        and this file should also be uploaded to CS3 when you deploy your application.
+    </p>
+
+    <p>There are two common ways to read a text file in Java:</p>
+
+    <p>a) Using <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html">Scanner</a>. For
+        example:</p>
+
+    <pre>
+        Scanner in = new Scanner(new File(filename));
+        while( in.hasNextLine() )
+            System.out.println(in.nextLine());
+        in.close();</pre>
+
+    <p>b) Using <a href="https://docs.oracle.com/javase/8/docs/api/java/io/BufferedReader.html">BufferedReader</a>. For
+        example:</p>
+
+    <pre>
+        BufferedReader in = new
+        BufferedReader(new InputStreamReader(new FileInputStream(filename)));
+        String line;
+        while( (line = in.readLine()) != null )
+            System.out.println(line);
+        in.close();</pre>
+
+    <p>Please also read&nbsp;<a href="https://csns.cysun.org/department/cs/forum/topic/view?id=4616171">To Catch or
+            Not To Catch</a> regarding exception handling in Java.</p>
+</body>
+
+</html>

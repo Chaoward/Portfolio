@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Add</title>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script>
+            $(function () {
+                $("#add").click( function() {
+                    const x = Number($("input[name='x']").val());
+                    const y = Number($("input[name='y']").val());
+
+                    const final = x + y;
+
+                    $("#sum").each(function() {
+                        this.textContent = String(isNaN(final) ? "Not a Number" : final);
+                    });
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+        <input type="text" name="x" /> + <input type="text" name="y" /> = <span id="sum">0</span>
+        <p><button id="add">Add</button>
+    </body>
+
+</html>

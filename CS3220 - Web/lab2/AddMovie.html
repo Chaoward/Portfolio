@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+
+<html>
+
+<head>
+    <title>Add Movie</title>
+</head>
+
+<body>
+    <h2> <a href="./BoxOffice.html">Box Office</a> &gt; Add Movie</h2>
+
+    <!-- Main Table ---------------------------------------------------------->
+    <table border="1" and cellpadding="2">
+        <tbody>
+            <!---------- One Entry -------------------------->
+            <tr>
+                <th>Movie:</th>
+                <td>
+                    <form>
+                        <input name="movie_in" value="">
+                    </form>
+                </td>
+            </tr>
+            <!------------------------------------------------>
+            <tr>
+                <th>Studio:</th>
+                <td>
+                    <form>
+                        <select name="studio_drop">
+                            <option value="sony">Sony Pictures Releasing</option>
+                            <option value="stx">STX Entertainment</option>
+                            <option value="universal">Universal Pictures</option>
+                            <option value="disney">Walt Disney Studios</option>
+                        </select>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <th>Gross:</th>
+                <td>
+                    <form>
+                        <input name="gross_in" value="">
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <th>Theaters:</th>
+                <td>
+                    <form>
+                        <input name="theater_in" value="">
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <th>New Release:</th>
+                <td>
+                    <form>
+                        <input type="checkbox" name="newRelease_check">
+                    </form>
+                </td>
+            </tr>
+            <!-- Add/Reset Buttons -->
+            <tr>
+                <td colspan="2">
+                    <form>
+                        <input type="button" name="reset" value="Reset">
+                        <input type="button" name="add" value="Add">
+                    </form>
+                </td>
+            </tr>
+            
+        </tbody>
+    </table>
+    <!-- END Table ----------------------------------------------------------->
+
+
+</body>
+
+
+
+</html>

@@ -1,0 +1,13 @@
+State: list of list
+ * map of the game
+ * outerList: list of rows
+ * innerlist: list of ints that represent sqaure type (col)
+
+sqaure type:
+ * empty
+ * wall
+ * box
+ * goal
+ * keeper/player
+ * box on goal
+ * keeper on goal

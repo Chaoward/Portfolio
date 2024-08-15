@@ -1,0 +1,19 @@
+html {
+    border: 2px solid black;
+    margin: 2%;
+    margin-right: 70%;
+}
+
+:link {
+    text-decoration-line: none;
+    color: blue;
+}
+
+h2:first-of-type {
+    font-weight: bolder;
+}
+
+th {
+    text-align: left;
+    font-weight: bolder;
+}
