@@ -8,6 +8,8 @@ My personal portfolio of work done during university.
 
 #### Software Engineering - [Gamiliar Project](https://github.com/Chaoward/CS-3337-Gamiliar-Project)
 
+#### Game Development - [Zero Gs Please](https://github.com/tammyxa/galactic-noodles)
+
 #### [ACM Mobile App](https://github.com/SahisN/ACM_Mobile_APP)
 
 #### [NASA SUITS 2020](https://github.com/SUITS-teams/Norco-SUITS)
